@@ -15,7 +15,7 @@ namespace DraperStudio\Eloquent\Presenter;
  *
  * @author DraperStudio <hello@draperstudio.tech>
  */
-class BasePresenter extends AbstractPresenter
+class BasePresenter extends Presenter
 {
     use Traits\RoutesTrait;
     use Traits\DateTimeTrait;
