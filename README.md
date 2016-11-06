@@ -8,19 +8,37 @@ Require this package, with [Composer](https://getcomposer.org/), in the root dir
 $ composer require faustbrian/eloquent-presenter
 ```
 
-And then include the service provider within `app/config/app.php`.
-
-``` php
-'providers' => [
-    BrianFaust\Eloquent\Presenter\ServiceProvider::class
-];
-```
-
 ## Usage
 
+### Presenter
 ``` php
-$skeleton = new League\Skeleton();
-echo $skeleton->echoPhrase('Hello, League!');
+use BrianFaust\Presenter\Presenter;
+
+class UserPresenter extends Presenter {
+    public function fullName()
+    {
+        return $this->first . ' ' . $this->last;
+    }
+
+    public function accountAge()
+    {
+        return $this->created_at->diffForHumans();
+    }
+}
+```
+
+### Model
+<?php
+
+use BrianFaust\Presenter\PresentableTrait;
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model {
+    use PresentableTrait;
+
+    protected $presenter = \App\UserPresenter::class;
+
+}
 ```
 
 ## Security
