@@ -14,7 +14,8 @@ $ composer require faustbrian/eloquent-presenter
 ``` php
 use BrianFaust\Presenter\Presenter;
 
-class UserPresenter extends Presenter {
+class UserPresenter extends Presenter
+{
     public function fullName()
     {
         return $this->first . ' ' . $this->last;
@@ -32,7 +33,8 @@ class UserPresenter extends Presenter {
 use BrianFaust\Presenter\PresentableTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model {
+class User extends Model
+{
     use PresentableTrait;
 
     protected $presenter = \App\UserPresenter::class;
