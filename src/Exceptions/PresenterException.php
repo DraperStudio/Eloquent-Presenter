@@ -1,6 +1,6 @@
 <?php
 
-namespace BrianFaust\Eloquent\Presenter\Exceptions;
+namespace BrianFaust\Presenter\Exceptions;
 
 class PresenterException extends \Exception
 {

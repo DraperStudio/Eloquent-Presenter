@@ -1,6 +1,6 @@
 <?php
 
-namespace BrianFaust\Tests\Eloquent\Presenter;
+namespace BrianFaust\Tests\Presenter;
 
 use GrahamCampbell\TestBench\AbstractPackageTestCase;
 

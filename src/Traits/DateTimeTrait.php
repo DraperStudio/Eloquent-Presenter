@@ -1,6 +1,6 @@
 <?php
 
-namespace BrianFaust\Eloquent\Presenter\Traits;
+namespace BrianFaust\Presenter\Traits;
 
 use Carbon\Carbon;
 

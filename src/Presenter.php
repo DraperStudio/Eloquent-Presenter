@@ -1,6 +1,6 @@
 <?php
 
-namespace BrianFaust\Eloquent\Presenter;
+namespace BrianFaust\Presenter;
 
 abstract class Presenter
 {

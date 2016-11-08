@@ -23,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "BrianFaust\\Eloquent\\Presenter\\": "src/"
+            "BrianFaust\\Presenter\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BrianFaust\\Tests\\Eloquent\\Presenter\\": "tests"
+            "BrianFaust\\Tests\\Presenter\\": "tests"
         }
     },
     "config": {

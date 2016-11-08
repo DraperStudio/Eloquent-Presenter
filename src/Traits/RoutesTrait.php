@@ -1,6 +1,6 @@
 <?php
 
-namespace BrianFaust\Eloquent\Presenter\Traits;
+namespace BrianFaust\Presenter\Traits;
 
 trait RoutesTrait
 {

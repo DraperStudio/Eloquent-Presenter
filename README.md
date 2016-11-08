@@ -31,7 +31,7 @@ class UserPresenter extends Presenter
 ### Model
 ```php
 use BrianFaust\Presenter\PresentableTrait;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Model;
 
 class User extends Model
 {
