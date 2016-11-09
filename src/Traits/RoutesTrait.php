@@ -118,9 +118,9 @@ trait RoutesTrait
     {
         $parameters = [];
         foreach ($this->getRouteParameters() as $segment) {
-            $column = $this->loadRelationship($segment);
+            $this->loadRelationship($segment);
 
-            $parameters[] = object_get($this->entity, $column);
+            $parameters[] = object_get($this->entity, $segment);
         }
 
         if ($this->appendEntityRouteKey) {
@@ -132,10 +132,8 @@ trait RoutesTrait
 
     /**
      * Eager-Load a relationship from the given segment.
-     * 
-     * @param string $segment
      *
-     * @return string
+     * @param string $segment
      */
     private function loadRelationship($segment)
     {
@@ -144,7 +142,5 @@ trait RoutesTrait
         $relationship = str_replace(".$column", null, $segment);
 
         $this->entity->load($relationship);
-
-        return $column;
     }
 }
