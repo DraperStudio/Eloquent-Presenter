@@ -5,7 +5,7 @@ namespace BrianFaust\Presenter\Traits;
 trait RoutesTrait
 {
     /**
-     * @var boolean
+     * @var bool
      */
     protected $appendEntityRouteKey = true;
 
@@ -116,17 +116,35 @@ trait RoutesTrait
      */
     protected function buildRouteParameters()
     {
-        $entity = $this->entity->toArray();
-
         $parameters = [];
         foreach ($this->getRouteParameters() as $segment) {
-            $parameters[] = array_get($entity, $segment);
+            $column = $this->loadRelationship($segment);
+
+            $parameters[] = object_get($this->entity, $column);
         }
 
         if ($this->appendEntityRouteKey) {
-            $parameters[] = array_get($entity, $this->getRouteKeyName());
+            $parameters[] = object_get($this->entity, $this->getRouteKeyName());
         }
 
         return $parameters;
+    }
+
+    /**
+     * Eager-Load a relationship from the given segment.
+     * 
+     * @param string $segment
+     *
+     * @return string
+     */
+    private function loadRelationship($segment)
+    {
+        $column = last(explode('.', $segment));
+
+        $relationship = str_replace(".$column", null, $segment);
+
+        $this->entity->load($relationship);
+
+        return $column;
     }
 }
