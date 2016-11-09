@@ -24,6 +24,12 @@ class CommentPresenter extends BasePresenter
     public function getRouteParameters()
     {
         // The ID of the model will be automatically attached to this array at the end
+        // [
+        //     $model->post->user->id,
+        //     $model->post->id,
+        //     $model->id // "id" is what is specified in $this->getRouteKeyName()
+        // ];
+        
         return ['post.user.id', 'post.id'];
     }
 }
