@@ -12,18 +12,19 @@ $ composer require faustbrian/eloquent-presenter
 
 ### Presenter
 ``` php
-use BrianFaust\Presenter\Presenter;
+use BrianFaust\Presenter\BasePresenter;
 
-class UserPresenter extends Presenter
+class CommentPresenter extends BasePresenter
 {
-    public function fullName()
+    public function getRoutePrefix()
     {
-        return $this->first . ' ' . $this->last;
+        return 'users.posts.invoices';
     }
 
-    public function accountAge()
+    public function getRouteParameters()
     {
-        return $this->created_at->diffForHumans();
+        // The ID of the model will be automatically attached to this array at the end
+        return ['post.user.id', 'post.id'];
     }
 }
 ```
@@ -33,7 +34,7 @@ class UserPresenter extends Presenter
 use BrianFaust\Presenter\HasViewPresenterTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Comment extends Model
 {
     use HasViewPresenterTrait;
 
