@@ -1,9 +1,14 @@
 <?php
 
-namespace BrianFaust\Presenter\Traits;
+namespace BrianFaust\Presenter;
 
 trait RoutesTrait
 {
+    /**
+     * @var boolean
+     */
+    protected $appendEntityRouteKey = true;
+
     /**
      * @return string
      */
@@ -75,7 +80,7 @@ trait RoutesTrait
      */
     public function getRouteParameters()
     {
-        return [$this->getRouteKeyName()];
+        return [];
     }
 
     /**
@@ -134,6 +139,10 @@ trait RoutesTrait
         $parameters = [];
         foreach ($this->getRouteParameters() as $segment) {
             $parameters[] = array_get($entity, $segment);
+        }
+
+        if ($this->appendEntityRouteKey) {
+            $parameters[] = array_get($entity, $this->getRouteKeyName());
         }
 
         return $parameters;
