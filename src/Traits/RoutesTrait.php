@@ -71,6 +71,14 @@ trait RoutesTrait
     }
 
     /**
+     * @return array
+     */
+    public function getRouteParameters()
+    {
+        return [$this->getRouteKeyName()];
+    }
+
+    /**
      * @return string
      */
     public function getRoutePrefix()
@@ -113,6 +121,21 @@ trait RoutesTrait
     {
         $name = $this->routeName($name);
 
-        return $keyName ? route($name, $this->{$this->getRouteKeyName()}) : route($name);
+        return $keyName ? route($name, $this->buildRouteParameters()) : route($name);
+    }
+
+    /**
+     * @return array
+     */
+    private function buildRouteParameters()
+    {
+        $entity = $this->entity->toArray();
+
+        $parameters = [];
+        foreach ($this->getRouteParameters() as $segment) {
+            $parameters[] = array_get($entity, $segment);
+        }
+
+        return $parameters;
     }
 }
