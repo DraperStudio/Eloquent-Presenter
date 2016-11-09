@@ -18,7 +18,7 @@ class CommentPresenter extends BasePresenter
 {
     public function getRoutePrefix()
     {
-        return 'users.posts.invoices';
+        return 'users.posts.comments';
     }
 
     public function getRouteParameters()
