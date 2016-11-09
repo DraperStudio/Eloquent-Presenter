@@ -7,9 +7,25 @@ trait RoutesTrait
     /**
      * @return string
      */
+    public function indexRoute()
+    {
+        return $this->buildRoute('index');
+    }
+
+    /**
+     * @return string
+     */
     public function createRoute()
     {
-        return route($this->routeName('create'));
+        return $this->buildRoute('create');
+    }
+
+    /**
+     * @return string
+     */
+    public function storeRoute()
+    {
+        return $this->buildRoute('store');
     }
 
     /**
@@ -17,7 +33,7 @@ trait RoutesTrait
      */
     public function showRoute()
     {
-        return route($this->routeName('show'), $this->{$this->routeModelIdentifier()});
+        return $this->buildRoute('show', true);
     }
 
     /**
@@ -25,7 +41,15 @@ trait RoutesTrait
      */
     public function editRoute()
     {
-        return route($this->routeName('edit'), $this->{$this->routeModelIdentifier()});
+        return $this->buildRoute('edit', true);
+    }
+
+    /**
+     * @return string
+     */
+    public function updateRoute()
+    {
+        return $this->buildRoute('update', true);
     }
 
     /**
@@ -33,31 +57,25 @@ trait RoutesTrait
      */
     public function deleteRoute()
     {
-        return route($this->routeName('delete'), $this->{$this->routeModelIdentifier()});
+        return $this->buildRoute('delete', true);
+    }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return $this->entity->getRouteKeyName();
     }
 
     /**
      * @return string
      */
-    public function listRoute()
+    public function getRoutePrefix()
     {
-        return route($this->routeName('list'));
-    }
-
-    /**
-     * @return string
-     */
-    public function routeModelIdentifier()
-    {
-        return 'id';
-    }
-
-    /**
-     * @return string
-     */
-    public function routeNamePrefix()
-    {
-        return 'prefix';
+        return strtolower(str_plural(class_basename(get_class($this->entity))));
     }
 
     /**
@@ -65,14 +83,16 @@ trait RoutesTrait
      */
     public function routeNames()
     {
-        $prefix = $this->routeNamePrefix();
+        $prefix = $this->getRoutePrefix();
 
         return [
+            'index'  => $prefix.'.index',
             'create' => $prefix.'.create',
-            'show' => $prefix.'.show',
-            'edit' => $prefix.'.edit',
+            'store'  => $prefix.'.store',
+            'show'   => $prefix.'.show',
+            'edit'   => $prefix.'.edit',
+            'update' => $prefix.'.update',
             'delete' => $prefix.'.delete',
-            'list' => $prefix.'.list',
         ];
     }
 
@@ -84,5 +104,15 @@ trait RoutesTrait
     private function routeName($key)
     {
         return $this->routeNames()[$key];
+    }
+
+    /**
+     * @return string
+     */
+    private function buildRoute($name, $keyName = false)
+    {
+        $name = $this->routeName($name);
+
+        return $keyName ? route($name, $this->{$this->getRouteKeyName()}) : route($name);
     }
 }

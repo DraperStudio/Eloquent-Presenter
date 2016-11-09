@@ -30,15 +30,22 @@ class UserPresenter extends Presenter
 
 ### Model
 ```php
-use BrianFaust\Presenter\PresentableTrait;
+use BrianFaust\Presenter\HasViewPresenterTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    use PresentableTrait;
+    use HasViewPresenterTrait;
 
-    protected $presenter = \App\UserPresenter::class;
-
+    /**
+     * Get the view presenter for the model.
+     *
+     * @return string
+     */
+    protected function getPresenter()
+    {
+        return UserPresenter::class;
+    }
 }
 ```
 
