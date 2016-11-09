@@ -62,7 +62,7 @@ trait RoutesTrait
      */
     public function deleteRoute()
     {
-        return $this->buildRoute('delete', true);
+        return $this->buildRoute('destroy', true);
     }
 
     /**
@@ -92,37 +92,19 @@ trait RoutesTrait
     }
 
     /**
-     * @return array
-     */
-    public function routeNames()
-    {
-        $prefix = $this->getRoutePrefix();
-
-        return [
-            'index'  => $prefix.'.index',
-            'create' => $prefix.'.create',
-            'store'  => $prefix.'.store',
-            'show'   => $prefix.'.show',
-            'edit'   => $prefix.'.edit',
-            'update' => $prefix.'.update',
-            'delete' => $prefix.'.destroy',
-        ];
-    }
-
-    /**
      * @param $key
      *
      * @return mixed
      */
-    private function routeName($key)
+    protected function routeName($key)
     {
-        return $this->routeNames()[$key];
+        return $this->getRoutePrefix().".$key";
     }
 
     /**
      * @return string
      */
-    private function buildRoute($name, $keyName = false)
+    protected function buildRoute($name, $keyName = false)
     {
         $name = $this->routeName($name);
 
@@ -132,7 +114,7 @@ trait RoutesTrait
     /**
      * @return array
      */
-    private function buildRouteParameters()
+    protected function buildRouteParameters()
     {
         $entity = $this->entity->toArray();
 
