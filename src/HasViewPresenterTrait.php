@@ -24,8 +24,8 @@ trait HasViewPresenterTrait
     {
         $presenterClass = $this->getPresenter();
 
-        if (!$presenterClass or !class_exists($presenterClass)) {
-            throw new PresenterException('Please set the $presenter property to your presenter path.');
+        if (!class_exists($presenterClass)) {
+            throw new PresenterException('The specified presenter does not exist.');
         }
 
         if (!$this->presenterInstance) {
