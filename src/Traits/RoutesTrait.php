@@ -92,7 +92,7 @@ trait RoutesTrait
             'show'   => $prefix.'.show',
             'edit'   => $prefix.'.edit',
             'update' => $prefix.'.update',
-            'delete' => $prefix.'.delete',
+            'delete' => $prefix.'.destroy',
         ];
     }
 
