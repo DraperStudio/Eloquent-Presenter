@@ -1,6 +1,6 @@
 <?php
 
-namespace BrianFaust\Presenter;
+namespace BrianFaust\Presenter\Traits;
 
 trait RoutesTrait
 {
