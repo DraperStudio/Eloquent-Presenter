@@ -34,4 +34,15 @@ abstract class Presenter
 
         return $this->entity->{$property};
     }
+
+    /**
+     * @param string $method
+     * @param array  $arguments
+     *
+     * @return mixed
+     */
+    public function __call(string $method, array $arguments)
+    {
+        return call_user_func_array([$this->entity, $method], $arguments);
+    }
 }
