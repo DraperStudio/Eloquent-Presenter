@@ -22,7 +22,7 @@ trait HasViewPresenterTrait
      */
     public function present()
     {
-        $presenterClass = $this->getPresenter();
+        $presenterClass = $this->getPresenterClass();
 
         if (!class_exists($presenterClass)) {
             throw new PresenterException('The specified presenter does not exist.');
@@ -40,5 +40,8 @@ trait HasViewPresenterTrait
      *
      * @return string
      */
-    abstract protected function getPresenter();
+    protected function getPresenterClass()
+    {
+        return "App\\Presenters\\".class_basename($this);
+    }
 }
