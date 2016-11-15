@@ -4,7 +4,7 @@ namespace BrianFaust\Presenter;
 
 use Exceptions\PresenterException;
 
-trait HasViewPresenterTrait
+trait Presentable
 {
     /**
      * View presenter instance.
