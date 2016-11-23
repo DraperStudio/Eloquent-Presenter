@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Eloquent Presenter.
+ *
+ * (c) Brian Faust <hello@brianfaust.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace BrianFaust\Presenter;
 
 use Exceptions\PresenterException;
@@ -24,11 +33,11 @@ trait Presentable
     {
         $presenterClass = $this->getPresenterClass();
 
-        if (!class_exists($presenterClass)) {
+        if (! class_exists($presenterClass)) {
             throw new PresenterException('The specified presenter does not exist.');
         }
 
-        if (!$this->presenterInstance) {
+        if (! $this->presenterInstance) {
             $this->presenterInstance = new $presenterClass($this);
         }
 
@@ -42,6 +51,6 @@ trait Presentable
      */
     protected function getPresenterClass()
     {
-        return "App\\Presenters\\".class_basename($this);
+        return 'App\\Presenters\\'.class_basename($this);
     }
 }
