@@ -2,19 +2,25 @@
 
 All Notable changes to `faustbrian/eloquent-presenter` will be documented in this file.
 
-## NEXT - YYYY-MM-DD
+## 2.0.5 (22/11/2016)
+- Added Laravel 5.1 support
 
-### Added
-- Nothing
+## 2.0.4 (15/11/2016)
+- Update and rename HasViewPresenterTrait.php to Presentable.php
+- Pass-thru method calls
+- Automatically find Presenter class
 
-### Deprecated
-- Nothing
+## 2.0.3 (09/11/2016)
+- Remove $column variable
 
-### Fixed
-- Nothing
+## 2.0.2 (09/11/2016)
+- Simplify route name building
 
-### Removed
-- Nothing
+## 2.0.1 (09/11/2016)
+- Fix namespace
 
-### Security
-- Nothing
+## 2.0.0 (08/11/2016)
+- Restructure the package
+
+## 1.0.0 (04/11/2016)
+- First release
