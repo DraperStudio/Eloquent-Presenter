@@ -32,7 +32,7 @@ trait RoutesTrait
     /**
      * @return string
      */
-    public function indexRoute()
+    public function indexRoute(): string
     {
         return $this->buildRoute('index');
     }
@@ -40,7 +40,7 @@ trait RoutesTrait
     /**
      * @return string
      */
-    public function createRoute()
+    public function createRoute(): string
     {
         return $this->buildRoute('create');
     }
@@ -48,7 +48,7 @@ trait RoutesTrait
     /**
      * @return string
      */
-    public function storeRoute()
+    public function storeRoute(): string
     {
         return $this->buildRoute('store');
     }
@@ -56,7 +56,7 @@ trait RoutesTrait
     /**
      * @return string
      */
-    public function showRoute()
+    public function showRoute(): string
     {
         return $this->buildRoute('show', true);
     }
@@ -64,7 +64,7 @@ trait RoutesTrait
     /**
      * @return string
      */
-    public function editRoute()
+    public function editRoute(): string
     {
         return $this->buildRoute('edit', true);
     }
@@ -72,7 +72,7 @@ trait RoutesTrait
     /**
      * @return string
      */
-    public function updateRoute()
+    public function updateRoute(): string
     {
         return $this->buildRoute('update', true);
     }
@@ -80,7 +80,7 @@ trait RoutesTrait
     /**
      * @return string
      */
-    public function deleteRoute()
+    public function deleteRoute(): string
     {
         return $this->buildRoute('destroy', true);
     }
@@ -90,7 +90,7 @@ trait RoutesTrait
      *
      * @return string
      */
-    public function getRouteKeyName()
+    public function getRouteKeyName(): string
     {
         return $this->entity->getRouteKeyName();
     }
@@ -98,7 +98,7 @@ trait RoutesTrait
     /**
      * @return array
      */
-    public function getRouteParameters()
+    public function getRouteParameters(): array
     {
         return [];
     }
@@ -106,7 +106,7 @@ trait RoutesTrait
     /**
      * @return string
      */
-    public function getRoutePrefix()
+    public function getRoutePrefix(): string
     {
         return strtolower(str_plural(class_basename(get_class($this->entity))));
     }
@@ -115,8 +115,7 @@ trait RoutesTrait
      * @param $key
      *
      * @return mixed
-     */
-    protected function routeName($key)
+     */: string
     {
         return $this->getRoutePrefix().".$key";
     }
@@ -124,7 +123,7 @@ trait RoutesTrait
     /**
      * @return string
      */
-    protected function buildRoute($name, $keyName = false)
+    protected function buildRoute($name, $keyName = false): string
     {
         $name = $this->routeName($name);
 
@@ -134,7 +133,7 @@ trait RoutesTrait
     /**
      * @return array
      */
-    protected function buildRouteParameters()
+    protected function buildRouteParameters(): array
     {
         $parameters = [];
         foreach ($this->getRouteParameters() as $segment) {
@@ -155,7 +154,7 @@ trait RoutesTrait
      *
      * @param string $segment
      */
-    private function loadRelationship($segment)
+    private function loadRelationship($segment): void
     {
         $column = last(explode('.', $segment));
 

@@ -60,7 +60,7 @@ trait Presentable
      *
      * @return string
      */
-    protected function getPresenterClass()
+    protected function getPresenterClass(): string
     {
         return 'App\\Presenters\\'.class_basename($this);
     }
