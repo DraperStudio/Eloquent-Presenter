@@ -112,10 +112,11 @@ trait RoutesTrait
     }
 
     /**
-     * @param $key
+     * @param string $key
      *
      * @return mixed
-     */: string
+     */
+    public function routeName(string $key): string
     {
         return $this->getRoutePrefix().".$key";
     }
