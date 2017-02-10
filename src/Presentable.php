@@ -22,8 +22,6 @@ declare(strict_types=1);
 
 namespace BrianFaust\Presenter;
 
-use Exceptions\PresenterException;
-
 trait Presentable
 {
     /**
@@ -45,7 +43,7 @@ trait Presentable
         $presenterClass = $this->getPresenterClass();
 
         if (!class_exists($presenterClass)) {
-            throw new PresenterException('The specified presenter does not exist.');
+            throw new Exceptions\PresenterException('The specified presenter does not exist.');
         }
 
         if (!$this->presenterInstance) {
