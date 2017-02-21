@@ -66,6 +66,6 @@ trait DateTimeTrait
      */
     public function getTimeAgo($dateTime): string
     {
-        return Carbon::createFromTimeStamp(strtotime($dateTime))->diffForHumans();
+        return Carbon::createFromTimeStamp(strtotime((string) $dateTime))->diffForHumans();
     }
 }
