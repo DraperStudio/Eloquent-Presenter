@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Eloquent Presenter.
  *
@@ -147,7 +144,7 @@ trait RoutesTrait
      *
      * @param string $segment
      */
-    private function loadRelationship($segment): void
+    private function loadRelationship($segment)
     {
         $column = last(explode('.', $segment));
 
