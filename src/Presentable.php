@@ -31,11 +31,11 @@ trait Presentable
     {
         $presenterClass = $this->getPresenterClass();
 
-        if (!class_exists($presenterClass)) {
+        if (! class_exists($presenterClass)) {
             throw new Exceptions\PresenterException('The specified presenter does not exist.');
         }
 
-        if (!$this->presenterInstance) {
+        if (! $this->presenterInstance) {
             $this->presenterInstance = new $presenterClass($this);
         }
 
