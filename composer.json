@@ -1,16 +1,23 @@
 {
     "name": "artisanry/eloquent-presenter",
     "description": "Model Presenters for Laravel",
-    "keywords": ["laravel", "framework", "Eloquent-Presenter", "Eloquent Presenter"],
+    "keywords": [
+        "laravel",
+        "framework",
+        "Eloquent-Presenter",
+        "Eloquent Presenter"
+    ],
     "license": "MIT",
-    "authors": [{
-        "name": "Brian Faust",
-        "email": "hello@basecode.sh",
-        "homepage": "https://basecode.sh"
-    }],
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "hello@basecode.sh",
+            "homepage": "https://basecode.sh"
+        }
+    ],
     "require": {
-        "php": "^7.1",
-        "illuminate/database": "^5.6",
+        "php": "^7.2",
+        "illuminate/database": "^5.8",
         "nesbot/carbon": "^1.22"
     },
     "require-dev": {
