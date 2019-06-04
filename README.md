@@ -1,23 +1,23 @@
 # Eloquent Presenter
 
-[![Build Status](https://img.shields.io/travis/faustbrian/Eloquent-Presenter/master.svg?style=flat-square)](https://travis-ci.org/faustbrian/Eloquent-Presenter)
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/faustbrian/eloquent-presenter.svg?style=flat-square)]()
-[![Latest Version](https://img.shields.io/github/release/faustbrian/Eloquent-Presenter.svg?style=flat-square)](https://github.com/faustbrian/Eloquent-Presenter/releases)
-[![License](https://img.shields.io/packagist/l/faustbrian/Eloquent-Presenter.svg?style=flat-square)](https://packagist.org/packages/faustbrian/Eloquent-Presenter)
+[![Build Status](https://img.shields.io/travis/artisanry/Eloquent-Presenter/master.svg?style=flat-square)](https://travis-ci.org/artisanry/Eloquent-Presenter)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/artisanry/eloquent-presenter.svg?style=flat-square)]()
+[![Latest Version](https://img.shields.io/github/release/artisanry/Eloquent-Presenter.svg?style=flat-square)](https://github.com/artisanry/Eloquent-Presenter/releases)
+[![License](https://img.shields.io/packagist/l/artisanry/Eloquent-Presenter.svg?style=flat-square)](https://packagist.org/packages/artisanry/Eloquent-Presenter)
 
 ## Installation
 
 Require this package, with [Composer](https://getcomposer.org/), in the root directory of your project.
 
 ``` bash
-$ composer require faustbrian/eloquent-presenter
+$ composer require artisanry/eloquent-presenter
 ```
 
 ## Usage
 
 ### Presenter
 ``` php
-use BrianFaust\Presenter\BasePresenter;
+use Artisanry\Presenter\BasePresenter;
 
 class CommentPresenter extends BasePresenter
 {
@@ -42,7 +42,7 @@ class CommentPresenter extends BasePresenter
 
 ### Model
 ```php
-use BrianFaust\Presenter\HasViewPresenterTrait;
+use Artisanry\Presenter\HasViewPresenterTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
@@ -69,7 +69,7 @@ $ phpunit
 
 ## Security
 
-If you discover a security vulnerability within this package, please send an e-mail to hello@brianfaust.me. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within this package, please send an e-mail to hello@basecode.sh. All security vulnerabilities will be promptly addressed.
 
 ## Credits
 
@@ -78,4 +78,4 @@ If you discover a security vulnerability within this package, please send an e-m
 
 ## License
 
-[MIT](LICENSE) © [Brian Faust](https://brianfaust.me)
+[MIT](LICENSE) © [Brian Faust](https://basecode.sh)

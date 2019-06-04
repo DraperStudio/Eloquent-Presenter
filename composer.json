@@ -1,12 +1,12 @@
 {
-    "name": "faustbrian/eloquent-presenter",
+    "name": "artisanry/eloquent-presenter",
     "description": "Model Presenters for Laravel",
-    "keywords": ["laravel", "framework", "Eloquent-Presenter", "Eloquent Presenter", "Brian Faust", "faustbrian"],
+    "keywords": ["laravel", "framework", "Eloquent-Presenter", "Eloquent Presenter"],
     "license": "MIT",
     "authors": [{
         "name": "Brian Faust",
-        "email": "hello@brianfaust.me",
-        "homepage": "https://brianfaust.me"
+        "email": "hello@basecode.sh",
+        "homepage": "https://basecode.sh"
     }],
     "require": {
         "php": "^7.1",
@@ -20,12 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "BrianFaust\\Presenter\\": "src/"
+            "Artisanry\\Presenter\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BrianFaust\\Tests\\Presenter\\": "tests"
+            "Artisanry\\Tests\\Presenter\\": "tests"
         }
     },
     "config": {
